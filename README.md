@@ -1,4 +1,4 @@
-# 📧 Gmail Bulk Unsubscribe & Cleanup Tool
+# Gmail Bulk Unsubscribe & Cleanup Tool
 
 A **free**, privacy-focused tool to bulk unsubscribe from emails, delete emails by sender, and mark emails as read. No subscriptions, no data collection - runs 100% on your machine.
 
@@ -8,37 +8,37 @@ A **free**, privacy-focused tool to bulk unsubscribe from emails, delete emails 
 ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
 ![GitHub stars](https://img.shields.io/github/stars/Gururagavendra/gmail-cleaner?style=flat-square&logo=github)
 
-> ✨ **No Subscription Required - Free Forever**
+> **No Subscription Required - Free Forever**
 
 ## Features
 
 | Feature | Description |
 |---------|-------------|
-| 🚫 **Bulk Unsubscribe** | Find newsletters and unsubscribe with one click |
-| 🗑️ **Delete by Sender** | See who sends you the most emails, delete in bulk |
-| ✅ **Mark as Read** | Bulk mark thousands of unread emails as read |
-| 🔍 **Smart Filters** | Filter by days, size of email, and category (Promotions, Social, Updates) |
-| 🔒 **Privacy First** | Runs locally - your data never leaves your machine |
-| ⚡ **Super Fast** | Gmail API with batch requests (100 emails per API call) |
-| 🎨 **Gmail-style UI** | Clean, familiar interface |
+| **Bulk Unsubscribe** | Find newsletters and unsubscribe with one click |
+| **Delete by Sender** | See who sends you the most emails, delete in bulk |
+| **Mark as Read** | Bulk mark thousands of unread emails as read |
+| **Smart Filters** | Filter by days, size of email, and category (Promotions, Social, Updates) |
+| **Privacy First** | Runs locally - your data never leaves your machine |
+| **Super Fast** | Gmail API with batch requests (100 emails per API call) |
+| **Gmail-style UI** | Clean, familiar interface |
 
 ## Demo
 
 ![Gmail Cleaner Demo](demo.gif)
 
-📺 **[Watch Setup Video on YouTube](https://youtu.be/CmOWn8Tm5ZE)** - Step-by-step guide to create OAuth credentials
+**[Watch Setup Video on YouTube](https://youtu.be/CmOWn8Tm5ZE)** - Step-by-step guide to create OAuth credentials
 
 *Filter by days/size-of-email/category → Scan senders → Select → Delete thousands of emails in seconds!*
 
 ## Setup
 
-> ⚠️ **Important**: You must create your **OWN** Google Cloud credentials.  
+> **Important**: You must create your **OWN** Google Cloud credentials.  
 > This app doesn't include pre-configured OAuth - that's what makes it privacy-focused!  
 > Each user runs their own instance with their own credentials.
 
 ### 1. Get Google OAuth Credentials
 
-> 📺 **Video Tutorial**: [Watch on YouTube](https://youtu.be/CmOWn8Tm5ZE) for a visual walkthrough
+> **Video Tutorial**: [Watch on YouTube](https://youtu.be/CmOWn8Tm5ZE) for a visual walkthrough
 
 1. Go to [Google Cloud Console](https://console.cloud.google.com/)
 2. Create a new project (or select existing)
@@ -94,7 +94,7 @@ docker logs $(docker ps -q --filter name=gmail-cleaner)
 
 **Step 5:** Copy the Google OAuth URL from logs, open in browser, and authorize
 
-> ⚠️ You'll see "Google hasn't verified this app" - this is normal! Click **Advanced** → **Go to Gmail Cleanup (unsafe)** to continue.
+> You'll see "Google hasn't verified this app" - this is normal! Click **Advanced** → **Go to Gmail Cleanup (unsafe)** to continue.
 
 ### Option B: Python (with uv)
 
@@ -107,11 +107,11 @@ The app opens at http://localhost:8766
 
 ## Security & Privacy
 
-- ✅ **100% Local** - No external servers, no data collection
-- ✅ **Open Source** - Inspect all the code yourself
-- ✅ **Minimal Permissions** - Only requests read + modify (for mark as read)
-- ✅ **Your Credentials** - You control your own Google OAuth app
-- ✅ **Gitignored Secrets** - `credentials.json` and `token.json` never get committed
+- **100% Local** - No external servers, no data collection
+- **Open Source** - Inspect all the code yourself
+- **Minimal Permissions** - Only requests read + modify (for mark as read)
+- **Your Credentials** - You control your own Google OAuth app
+- **Gitignored Secrets** - `credentials.json` and `token.json` never get committed
 
 ## FAQ
 
@@ -139,7 +139,7 @@ This error means you're missing a step in the OAuth setup:
 4. Click **Add Users** and add your Gmail address
 5. Try signing in again
 
-> 💡 **Why?** Since your app is in "Testing" mode, only emails listed as test users can sign in. This is normal and expected!
+> **Why?** Since your app is in "Testing" mode, only emails listed as test users can sign in. This is normal and expected!
 
 ### "Error 403: access_denied"
 
@@ -204,5 +204,5 @@ MIT License - Use it however you want!
 ---
 
 <p align="center">
-  Made with ❤️ to help you escape email hell
+  Made to help you escape email hell
 </p>
