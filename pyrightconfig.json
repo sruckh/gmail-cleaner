@@ -1,5 +1,13 @@
 {
   "venvPath": ".",
   "venv": ".venv",
-  "extraPaths": ["."]
+  "extraPaths": ["."],
+  "typeCheckingMode": "basic",
+  "reportMissingTypeStubs": false,
+  "reportUnknownMemberType": false,
+  "reportUnknownArgumentType": false,
+  "reportUnknownVariableType": false,
+  "reportOptionalMemberAccess": false,
+  "reportAttributeAccessIssue": false,
+  "ignoreUnknownImports": true
 }

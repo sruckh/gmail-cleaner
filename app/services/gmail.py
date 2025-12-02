@@ -190,7 +190,9 @@ def scan_emails(limit: int = 500, filters: Optional[dict] = None):
         state.scan_status["message"] = f"Found {total} emails. Scanning..."
         
         # Process in batches using Gmail Batch API (100 requests per HTTP call!)
-        unsubscribe_data = defaultdict(lambda: {"link": None, "count": 0, "subjects": [], "type": None})
+        unsubscribe_data: dict[str, dict] = defaultdict(lambda: {
+            "link": None, "count": 0, "subjects": [], "type": None, "sender": "", "email": ""
+        })
         processed = 0
         batch_size = 100
         
@@ -481,7 +483,7 @@ def scan_senders_for_delete(limit: int = 1000, filters: Optional[dict] = None):
         state.delete_scan_status["message"] = f"Scanning {total} emails..."
         
         # Group by sender using Gmail Batch API
-        sender_counts = defaultdict(lambda: {"count": 0, "sender": "", "email": "", "subjects": []})
+        sender_counts: dict[str, dict] = defaultdict(lambda: {"count": 0, "sender": "", "email": "", "subjects": []})
         processed = 0
         batch_size = 100
         
@@ -590,6 +592,12 @@ def delete_emails_by_sender(sender: str) -> dict:
             ).execute()
             deleted += len(batch)
         
+        # Remove sender from cached results
+        state.delete_scan_results = [
+            r for r in state.delete_scan_results 
+            if r.get("email") != sender
+        ]
+        
         return {"success": True, "deleted": deleted, "message": f"Moved {deleted} emails to trash"}
         
     except Exception as e:
@@ -610,6 +618,8 @@ def delete_emails_bulk(senders: list[str]) -> dict:
             total_deleted += result["deleted"]
         else:
             errors.append(f"{sender}: {result['message']}")
+    
+    # Note: delete_emails_by_sender already removes each sender from cached results
     
     if errors:
         return {
